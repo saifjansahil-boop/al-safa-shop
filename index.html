@@ -1,174 +1,183 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>محل ستائر الصفاء</title>
 
 <style>
-body {
-    font-family: Arial;
-    margin: 0;
-    background: #f5f5f5;
-    text-align: center;
-}
+body {margin:0;font-family:sans-serif;background:#f5f5f5;text-align:center;}
 
-/* HEADER */
 header {
-    background: linear-gradient(to right, #c9a300, #e6c200);
-    color: white;
-    padding: 20px;
+background:linear-gradient(135deg,#d4af37,#b8860b);
+color:white;padding:20px;
 }
 
-/* LOGO */
-.logo {
-    width: 80px;
-    border-radius: 50%;
-}
+.logo {width:80px;margin-bottom:10px;}
 
-/* LOCATION */
 .location {
-    background: #4facfe;
-    color: white;
-    padding: 15px;
-    margin: 15px;
-    border-radius: 20px;
+background:#4285F4;color:white;
+padding:15px;margin:15px;
+border-radius:20px;text-decoration:none;display:block;
 }
 
-/* CARD */
-.card {
-    background: white;
-    margin: 15px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+.gallery {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;padding:15px;
 }
 
-.card img {
-    width: 100%;
+.item {
+background:white;border-radius:15px;
+overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* BUTTON */
+.item img {width:100%;}
+
 .btn {
-    display: block;
-    background: #25D366;
-    color: white;
-    padding: 12px;
-    text-decoration: none;
+background:#25d366;color:white;
+padding:12px;text-decoration:none;display:block;
+font-weight:bold;
 }
 
-/* FORM */
 .form-box {
-    background: white;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 15px;
+background:white;margin:20px;padding:20px;
+border-radius:15px;
 }
 
-.form-box input, .form-box textarea {
-    width: 90%;
-    padding: 10px;
-    margin: 10px;
+.form-box input,.form-box textarea,.form-box select {
+width:90%;padding:10px;margin:10px;
 }
 
-/* FLOAT */
-.whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 20px;
-    text-decoration: none;
+.whatsapp-float {
+position:fixed;bottom:20px;right:20px;
+background:#25d366;color:white;
+padding:15px;border-radius:50%;
+font-size:22px;text-decoration:none;
+}
+
+footer {
+background:#111;color:#d4af37;
+padding:20px;margin-top:20px;
 }
 </style>
+
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
 <img src="logo.png" class="logo"><br>
-محل ستائر الصفاء
+<h2>محل ستائر الصفاء</h2>
 </header>
 
-<div class="location">
-📍 الهفوف - بجانب رايز جاردن <br>
-<a href="https://maps.google.com/?q=25.3647,49.5867" style="color:white;">فتح الموقع</a>
-</div>
+<!-- LOCATION -->
+<a class="location" href="https://maps.google.com/?q=25.3647,49.5867">
+📍 موقعنا: الهفوف - بجانب رايز جاردن
+</a>
 
-<!-- PRODUCTS -->
-<div class="card">
-<img src="IMG-20260426-WA0010.jpg">
-<a class="btn" href="https://wa.me/966565717405">طلب عبر واتساب</a>
-</div>
+<!-- GALLERY -->
+<div class="gallery">
 
-<div class="card">
-<img src="IMG-20260426-WA0011.jpg">
-<a class="btn" href="https://wa.me/966565717405">طلب عبر واتساب</a>
-</div>
-
-<div class="card">
+<div class="item">
 <img src="IMG-20260426-WA0012.jpg">
-<a class="btn" href="https://wa.me/966565717405">طلب عبر واتساب</a>
+<a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a>
 </div>
 
-<div class="card">
-<img src="IMG-20260426-WA0015.jpg">
-<a class="btn" href="https://wa.me/966565717405">طلب عبر واتساب</a>
+<div class="item">
+<img src="IMG-20260426-WA0011.jpg">
+<a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a>
 </div>
 
-<div class="card">
-<img src="IMG-20260426-WA0016.jpg">
-<a class="btn" href="https://wa.me/966565717405">طلب عبر واتساب</a>
-</div>
-
-<div class="card">
-<img src="IMG-20260426-WA0017.jpg">
-<a class="btn" href="https://wa.me/966565717405">طلب عبر واتساب</a>
-</div>
-
-<div class="card">
-<img src="IMG-20260426-WA0018.jpg">
-<a class="btn" href="https://wa.me/966565717405">طلب عبر واتساب</a>
-</div>
-
-<div class="card">
-<img src="IMG-20260426-WA0019.jpg">
-<a class="btn" href="https://wa.me/966565717405">طلب عبر واتساب</a>
-</div>
-
-<div class="card">
+<div class="item">
 <img src="IMG-20260426-WA0020.jpg">
-<a class="btn" href="https://wa.me/966565717405">طلب عبر واتساب</a>
+<a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a>
 </div>
 
-<!-- ONLINE ORDER FORM -->
+<div class="item">
+<img src="IMG-20260426-WA0019.jpg">
+<a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a>
+</div>
+
+<div class="item">
+<img src="IMG-20260426-WA0018.jpg">
+<a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a>
+</div>
+
+<div class="item">
+<img src="IMG-20260426-WA0017.jpg">
+<a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a>
+</div>
+
+<div class="item">
+<img src="IMG-20260426-WA0016.jpg">
+<a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a>
+</div>
+
+<div class="item">
+<img src="IMG-20260426-WA0015.jpg">
+<a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a>
+</div>
+
+<div class="item">
+<img src="IMG-20260426-WA0010.jpg">
+<a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a>
+</div>
+
+</div>
+
+<!-- ORDER FORM -->
 <div class="form-box">
-<h2>📋 طلب أونلاين</h2>
+<h2>📋 طلب ستائر أونلاين</h2>
 
-<input type="text" id="name" placeholder="اسمك"><br>
-<input type="text" id="phone" placeholder="رقمك"><br>
-<textarea id="details" placeholder="تفاصيل الطلب"></textarea><br>
+<input type="text" id="name" placeholder="اسمك">
+<input type="text" id="phone" placeholder="رقمك">
 
-<button onclick="sendOrder()" style="background:#25D366;color:white;padding:12px;border:none;">
+<input type="text" id="width" placeholder="العرض (مثلاً 3 متر)">
+<input type="text" id="height" placeholder="الطول (مثلاً 2.5 متر)">
+
+<select id="type">
+<option>نوع الستارة</option>
+<option>مودرن</option>
+<option>كلاسيك</option>
+<option>شفافة</option>
+<option>بلاك اوت</option>
+</select>
+
+<textarea id="details" placeholder="تفاصيل إضافية"></textarea>
+
+<button onclick="sendOrder()" style="background:#25d366;color:white;padding:12px;border:none;border-radius:10px;">
 إرسال الطلب عبر واتساب
 </button>
 </div>
 
-<!-- FLOAT BUTTON -->
-<a class="whatsapp" href="https://wa.me/966565717405">💬</a>
+<!-- FLOAT WHATSAPP -->
+<a href="https://wa.me/966565717405" class="whatsapp-float">💬</a>
+
+<footer>
+📞 0565717405<br>
+محل ستائر الصفاء
+</footer>
 
 <script>
 function sendOrder() {
-  var name = document.getElementById("name").value;
-  var phone = document.getElementById("phone").value;
-  var details = document.getElementById("details").value;
+var name = document.getElementById("name").value;
+var phone = document.getElementById("phone").value;
+var width = document.getElementById("width").value;
+var height = document.getElementById("height").value;
+var type = document.getElementById("type").value;
+var details = document.getElementById("details").value;
 
-  var msg = "طلب جديد:%0Aالاسم: " + name + "%0Aالرقم: " + phone + "%0Aالتفاصيل: " + details;
+var msg = "طلب جديد:%0A"
++ "الاسم: " + name + "%0A"
++ "الرقم: " + phone + "%0A"
++ "العرض: " + width + "%0A"
++ "الطول: " + height + "%0A"
++ "النوع: " + type + "%0A"
++ "تفاصيل: " + details;
 
-  window.open("https://wa.me/966565717405?text=" + msg, "_blank");
+window.open("https://wa.me/966565717405?text=" + msg, "_blank");
 }
 </script>
 
