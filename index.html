@@ -21,43 +21,25 @@ padding:15px;margin:15px;
 border-radius:20px;text-decoration:none;display:block;
 }
 
-/* SLIDER */
-.slider {
-position:relative;
-height:300px;
-margin:15px;
-overflow:hidden;
-border-radius:15px;
+.gallery {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;padding:15px;
 }
 
-.slide {
-position:absolute;
-width:100%;
-height:100%;
-object-fit:cover;
-opacity:0;
-transition:1s;
+.item {
+background:white;border-radius:15px;
+overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
-.slide.active {opacity:1;}
+.item img {width:100%;}
 
-.prev, .next {
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:rgba(0,0,0,0.5);
-color:white;
-border:none;
-font-size:22px;
-padding:10px;
-cursor:pointer;
-border-radius:50%;
+.btn {
+background:#25d366;color:white;
+padding:12px;text-decoration:none;display:block;
+font-weight:bold;
 }
 
-.prev {left:10px;}
-.next {right:10px;}
-
-/* FORM */
 .form-box {
 background:white;margin:20px;padding:20px;
 border-radius:15px;
@@ -67,15 +49,6 @@ border-radius:15px;
 width:90%;padding:10px;margin:10px;
 }
 
-/* BUTTON */
-.btn {
-background:#25d366;color:white;
-padding:12px;text-decoration:none;
-display:block;font-weight:bold;
-border:none;
-}
-
-/* FLOAT */
 .whatsapp-float {
 position:fixed;bottom:20px;right:20px;
 background:#25d366;color:white;
@@ -88,39 +61,41 @@ background:#111;color:#d4af37;
 padding:20px;margin-top:20px;
 }
 </style>
+
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
 <img src="logo.png" class="logo"><br>
 <h2>محل ستائر الصفاء</h2>
 </header>
 
+<!-- LOCATION -->
 <a class="location" href="https://maps.google.com/?q=25.3647,49.5867">
 📍 موقعنا: الهفوف - بجانب رايز جاردن
 </a>
 
-<!-- SLIDER -->
-<div class="slider">
+<!-- GALLERY -->
+<div class="gallery">
 
-<button class="prev" onclick="prevSlide()">❮</button>
+<!-- زاړه عکسونه -->
+<div class="item"><img src="IMG-20260426-WA0012.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+<div class="item"><img src="IMG-20260426-WA0011.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+<div class="item"><img src="IMG-20260426-WA0020.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+<div class="item"><img src="IMG-20260426-WA0019.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+<div class="item"><img src="IMG-20260426-WA0018.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+<div class="item"><img src="IMG-20260426-WA0017.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+<div class="item"><img src="IMG-20260426-WA0016.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+<div class="item"><img src="IMG-20260426-WA0015.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+<div class="item"><img src="IMG-20260426-WA0010.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
 
-<img src="IMG-20260426-WA0012.jpg" class="slide active">
-<img src="IMG-20260426-WA0011.jpg" class="slide">
-<img src="IMG-20260426-WA0020.jpg" class="slide">
-<img src="IMG-20260426-WA0019.jpg" class="slide">
-<img src="IMG-20260426-WA0018.jpg" class="slide">
-<img src="IMG-20260426-WA0017.jpg" class="slide">
-<img src="IMG-20260426-WA0016.jpg" class="slide">
-<img src="IMG-20260426-WA0015.jpg" class="slide">
-<img src="IMG-20260426-WA0010.jpg" class="slide">
-<img src="IMG-20260426-WA0018(2).jpg" class="slide">
-<img src="IMG-20260426-WA0015(2).jpg" class="slide">
-<img src="IMG-20260426-WA0012(2).jpg" class="slide">
-<img src="IMG-20260208-WA0006.jpg" class="slide">
-
-<button class="next" onclick="nextSlide()">❯</button>
+<!-- نوي عکسونه -->
+<div class="item"><img src="IMG-20260426-WA0018(2).jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+<div class="item"><img src="IMG-20260426-WA0015(2).jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+<div class="item"><img src="IMG-20260426-WA0012(2).jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+<div class="item"><img src="IMG-20260208-WA0006.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
 
 </div>
 
@@ -143,11 +118,12 @@ padding:20px;margin-top:20px;
 
 <textarea id="details" placeholder="تفاصيل إضافية"></textarea>
 
-<button onclick="sendOrder()" class="btn">
+<button onclick="sendOrder()" style="background:#25d366;color:white;padding:12px;border:none;border-radius:10px;">
 إرسال الطلب عبر واتساب
 </button>
 </div>
 
+<!-- FLOAT -->
 <a href="https://wa.me/966565717405" class="whatsapp-float">💬</a>
 
 <footer>
@@ -156,33 +132,6 @@ padding:20px;margin-top:20px;
 </footer>
 
 <script>
-// SLIDER CONTROL
-let slides = document.querySelectorAll(".slide");
-let index = 0;
-
-function showSlide(i) {
-slides.forEach(s => s.classList.remove("active"));
-slides[i].classList.add("active");
-}
-
-function nextSlide() {
-index++;
-if(index >= slides.length) index = 0;
-showSlide(index);
-}
-
-function prevSlide() {
-index--;
-if(index < 0) index = slides.length - 1;
-showSlide(index);
-}
-
-// Slow Auto Slide
-setInterval(() => {
-nextSlide();
-}, 6000);
-
-// ORDER
 function sendOrder() {
 var name = document.getElementById("name").value;
 var phone = document.getElementById("phone").value;
