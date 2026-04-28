@@ -25,8 +25,8 @@ border-radius:20px;text-decoration:none;display:block;
 .slider {
 position:relative;
 height:300px;
-overflow:hidden;
 margin:15px;
+overflow:hidden;
 border-radius:15px;
 }
 
@@ -41,6 +41,22 @@ transition:1s;
 
 .slide.active {opacity:1;}
 
+.prev, .next {
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.5);
+color:white;
+border:none;
+font-size:22px;
+padding:10px;
+cursor:pointer;
+border-radius:50%;
+}
+
+.prev {left:10px;}
+.next {right:10px;}
+
 /* FORM */
 .form-box {
 background:white;margin:20px;padding:20px;
@@ -54,8 +70,9 @@ width:90%;padding:10px;margin:10px;
 /* BUTTON */
 .btn {
 background:#25d366;color:white;
-padding:12px;text-decoration:none;display:block;
-font-weight:bold;
+padding:12px;text-decoration:none;
+display:block;font-weight:bold;
+border:none;
 }
 
 /* FLOAT */
@@ -86,6 +103,9 @@ padding:20px;margin-top:20px;
 
 <!-- SLIDER -->
 <div class="slider">
+
+<button class="prev" onclick="prevSlide()">❮</button>
+
 <img src="IMG-20260426-WA0012.jpg" class="slide active">
 <img src="IMG-20260426-WA0011.jpg" class="slide">
 <img src="IMG-20260426-WA0020.jpg" class="slide">
@@ -99,6 +119,9 @@ padding:20px;margin-top:20px;
 <img src="IMG-20260426-WA0015(2).jpg" class="slide">
 <img src="IMG-20260426-WA0012(2).jpg" class="slide">
 <img src="IMG-20260208-WA0006.jpg" class="slide">
+
+<button class="next" onclick="nextSlide()">❯</button>
+
 </div>
 
 <!-- ORDER FORM -->
@@ -107,7 +130,6 @@ padding:20px;margin-top:20px;
 
 <input type="text" id="name" placeholder="اسمك">
 <input type="text" id="phone" placeholder="رقمك">
-
 <input type="text" id="width" placeholder="العرض (مثلاً 3 متر)">
 <input type="text" id="height" placeholder="الطول (مثلاً 2.5 متر)">
 
@@ -126,7 +148,6 @@ padding:20px;margin-top:20px;
 </button>
 </div>
 
-<!-- FLOAT -->
 <a href="https://wa.me/966565717405" class="whatsapp-float">💬</a>
 
 <footer>
@@ -135,17 +156,31 @@ padding:20px;margin-top:20px;
 </footer>
 
 <script>
-// SLIDER
+// SLIDER CONTROL
 let slides = document.querySelectorAll(".slide");
 let index = 0;
 
-function showSlide() {
+function showSlide(i) {
 slides.forEach(s => s.classList.remove("active"));
-slides[index].classList.add("active");
-index++;
-if (index >= slides.length) index = 0;
+slides[i].classList.add("active");
 }
-setInterval(showSlide, 3000);
+
+function nextSlide() {
+index++;
+if(index >= slides.length) index = 0;
+showSlide(index);
+}
+
+function prevSlide() {
+index--;
+if(index < 0) index = slides.length - 1;
+showSlide(index);
+}
+
+// Slow Auto Slide
+setInterval(() => {
+nextSlide();
+}, 6000);
 
 // ORDER
 function sendOrder() {
