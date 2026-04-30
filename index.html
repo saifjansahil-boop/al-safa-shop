@@ -40,6 +40,11 @@
             max-width: 400px;
             font-weight: bold;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .location:hover {
+            background: #b8962d;
         }
 
         .gallery {
@@ -104,6 +109,7 @@
             font-size: 22px;
             text-decoration: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
         }
 
         footer {
@@ -121,7 +127,7 @@
     <img src="Screenshot_20260428_115312.jpg" alt="محل ستائر الصفاء" class="main-logo">
 </header>
 
-<a class="location" href="https://maps.google.com/?q=Al+Hofuf+Rise+Garden">
+<a class="location" href="https://maps.app.goo.gl/qkNdjutS9EHd15nS9">
     📍 موقعنا: الهفوف - بجانب رايز جاردن
 </a>
 
@@ -135,7 +141,6 @@
     <div class="item"><img src="IMG-20260426-WA0016.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
     <div class="item"><img src="IMG-20260426-WA0015.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
     <div class="item"><img src="IMG-20260426-WA0010.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
-
     <div class="item"><img src="IMG-20260426-WA0018(2).jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
     <div class="item"><img src="IMG-20260426-WA0015(2).jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
     <div class="item"><img src="IMG-20260426-WA0012(2).jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
@@ -155,7 +160,7 @@
     <button class="submit-btn" onclick="sendOrder()">إرسال واتساب</button>
 </div>
 
-<a href="https://wa.me/966565717405" class="whatsapp-float">💬</a>
+<a href="https://wa.me/966565717405" class="whatsapp-float" target="_blank">💬</a>
 
 <footer>
     📞 0565717405<br>
@@ -169,7 +174,12 @@ function sendOrder() {
     var type = document.getElementById("type").value;
     var details = document.getElementById("details").value;
 
-    var msg = "طلب جديد:%0A"
+    if(name == "" || phone == "") {
+        alert("يرجى إدخال الاسم ورقم الجوال");
+        return;
+    }
+
+    var msg = "طلب جديد من الموقع:%0A"
     + "الاسم: " + name + "%0A"
     + "الرقم: " + phone + "%0A"
     + "النوع: " + type + "%0A"
