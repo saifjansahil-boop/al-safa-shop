@@ -1,227 +1,183 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>محل ستائر الصفاء</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محل ستائر الصفاء</title>
 
-<style>
-body {
-    margin:0;
-    font-family:'Segoe UI', Tahoma;
-    background:#f8f9fb;
-    text-align:center;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background: #f0f2f5;
+            text-align: center;
+        }
 
-/* HEADER */
-header {
-    background:linear-gradient(135deg,#000,#333);
-    color:white;
-    padding:25px;
-}
+        header {
+            background: linear-gradient(135deg, #001f3f, #003366);
+            padding: 30px 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
 
-.logo {
-    width:90px;
-    border-radius:50%;
-    border:3px solid #d4af37;
-}
+        .main-logo {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto;
+        }
 
-/* LOCATION */
-.location {
-    display:block;
-    margin:15px auto;
-    padding:15px;
-    max-width:400px;
-    background:linear-gradient(135deg,#007bff,#00c6ff);
-    color:white;
-    text-decoration:none;
-    border-radius:50px;
-}
+        .location {
+            background: #d4af37;
+            color: white;
+            padding: 15px;
+            margin: 20px auto;
+            border-radius: 25px;
+            text-decoration: none;
+            display: block;
+            width: 90%;
+            max-width: 400px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
 
-/* GALLERY */
-.gallery {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:15px;
-    padding:15px;
-}
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 15px;
+        }
 
-.item {
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    cursor:pointer;
-}
+        .item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
 
-.item img {
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    transition:0.3s;
-}
+        .item img { width: 100%; height: auto; }
 
-.item:hover img {
-    transform:scale(1.05);
-}
+        .btn {
+            background: #25d366;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+        }
 
-/* ZOOM */
-#popup {
-    display:none;
-    position:fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background:rgba(0,0,0,0.9);
-    justify-content:center;
-    align-items:center;
-}
+        .form-box {
+            background: white;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
 
-#popup img {
-    max-width:90%;
-    max-height:90%;
-}
+        .form-box input, .form-box textarea, .form-box select {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
 
-/* FORM */
-.form-box {
-    background:white;
-    margin:20px;
-    padding:20px;
-    border-radius:20px;
-}
+        .submit-btn {
+            background: #003366;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
-.form-box input,
-.form-box textarea,
-.form-box select {
-    width:90%;
-    padding:10px;
-    margin:10px;
-}
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 22px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
 
-/* BUTTON */
-.btn {
-    background:#25d366;
-    color:white;
-    padding:12px;
-    border:none;
-    border-radius:10px;
-}
-
-/* FLOAT */
-.whatsapp-float {
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25d366;
-    color:white;
-    padding:15px;
-    border-radius:50%;
-}
-
-/* FOOTER */
-footer {
-    background:#000;
-    color:#d4af37;
-    padding:20px;
-}
-</style>
+        footer {
+            background: #111;
+            color: #d4af37;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-<img src="logo.png" class="logo"><br>
-<h2>محل ستائر الصفاء</h2>
+    <img src="Screenshot_20260428_115312.jpg" alt="محل ستائر الصفاء" class="main-logo">
 </header>
 
-<a class="location" href="https://maps.app.goo.gl/oMpLiWp3CkfiqoaH8" target="_blank">
-📍 اضغط هنا لفتح موقع المحل
+<a class="location" href="https://maps.google.com/?q=Al+Hofuf+Rise+Garden">
+    📍 موقعنا: الهفوف - بجانب رايز جاردن
 </a>
 
-<!-- GALLERY -->
 <div class="gallery">
+    <div class="item"><img src="IMG-20260426-WA0012.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+    <div class="item"><img src="IMG-20260426-WA0011.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+    <div class="item"><img src="IMG-20260426-WA0020.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+    <div class="item"><img src="IMG-20260426-WA0019.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+    <div class="item"><img src="IMG-20260426-WA0018.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+    <div class="item"><img src="IMG-20260426-WA0017.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+    <div class="item"><img src="IMG-20260426-WA0016.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+    <div class="item"><img src="IMG-20260426-WA0015.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+    <div class="item"><img src="IMG-20260426-WA0010.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
 
-<div class="item"><img src="IMG-20260426-WA0012.jpg" onclick="openImg(this.src)"></div>
-<div class="item"><img src="IMG-20260426-WA0011.jpg" onclick="openImg(this.src)"></div>
-<div class="item"><img src="IMG-20260426-WA0020.jpg" onclick="openImg(this.src)"></div>
-<div class="item"><img src="IMG-20260426-WA0019.jpg" onclick="openImg(this.src)"></div>
-<div class="item"><img src="IMG-20260426-WA0018.jpg" onclick="openImg(this.src)"></div>
-<div class="item"><img src="IMG-20260426-WA0017.jpg" onclick="openImg(this.src)"></div>
-<div class="item"><img src="IMG-20260426-WA0016.jpg" onclick="openImg(this.src)"></div>
-<div class="item"><img src="IMG-20260426-WA0015.jpg" onclick="openImg(this.src)"></div>
-<div class="item"><img src="IMG-20260426-WA0010.jpg" onclick="openImg(this.src)"></div>
-
-<div class="item"><img src="IMG-20260426-WA0018(2).jpg" onclick="openImg(this.src)"></div>
-<div class="item"><img src="IMG-20260426-WA0015(2).jpg" onclick="openImg(this.src)"></div>
-<div class="item"><img src="IMG-20260426-WA0012(2).jpg" onclick="openImg(this.src)"></div>
-<div class="item"><img src="IMG-20260208-WA0006.jpg" onclick="openImg(this.src)"></div>
-
+    <div class="item"><img src="IMG-20260426-WA0018(2).jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+    <div class="item"><img src="IMG-20260426-WA0015(2).jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+    <div class="item"><img src="IMG-20260426-WA0012(2).jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
+    <div class="item"><img src="IMG-20260208-WA0006.jpg"><a href="https://wa.me/966565717405" class="btn">طلب عبر واتساب</a></div>
 </div>
 
-<!-- POPUP -->
-<div id="popup" onclick="closeImg()">
-<img id="popup-img">
-</div>
-
-<!-- FORM -->
 <div class="form-box">
-<h2>📋 طلب ستائر أونلاين</h2>
-
-<input type="text" id="name" placeholder="اسمك">
-<input type="text" id="phone" placeholder="رقمك">
-<input type="text" id="width" placeholder="العرض">
-<input type="text" id="height" placeholder="الطول">
-
-<select id="type">
-<option>نوع الستارة</option>
-<option>مودرن</option>
-<option>كلاسيك</option>
-<option>شفافة</option>
-<option>بلاك اوت</option>
-</select>
-
-<textarea id="details" placeholder="تفاصيل"></textarea>
-
-<button onclick="sendOrder()" class="btn">
-إرسال عبر واتساب
-</button>
+    <h2>📋 طلب ستائر أونلاين</h2>
+    <input type="text" id="name" placeholder="اسمك">
+    <input type="text" id="phone" placeholder="رقم الجوال">
+    <select id="type">
+        <option>نوع الستارة</option>
+        <option>مودرن</option>
+        <option>كلاسيك</option>
+    </select>
+    <textarea id="details" placeholder="تفاصيل أخرى"></textarea>
+    <button class="submit-btn" onclick="sendOrder()">إرسال واتساب</button>
 </div>
 
 <a href="https://wa.me/966565717405" class="whatsapp-float">💬</a>
 
 <footer>
-📞 0565717405<br>
-محل ستائر الصفاء
+    📞 0565717405<br>
+    محل ستائر الصفاء
 </footer>
 
 <script>
-function openImg(src){
-document.getElementById("popup").style.display="flex";
-document.getElementById("popup-img").src=src;
-}
+function sendOrder() {
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var type = document.getElementById("type").value;
+    var details = document.getElementById("details").value;
 
-function closeImg(){
-document.getElementById("popup").style.display="none";
-}
+    var msg = "طلب جديد:%0A"
+    + "الاسم: " + name + "%0A"
+    + "الرقم: " + phone + "%0A"
+    + "النوع: " + type + "%0A"
+    + "تفاصيل: " + details;
 
-function sendOrder(){
-var name=document.getElementById("name").value;
-var phone=document.getElementById("phone").value;
-var width=document.getElementById("width").value;
-var height=document.getElementById("height").value;
-var type=document.getElementById("type").value;
-var details=document.getElementById("details").value;
-
-var msg="طلب جديد:%0A"
-+"الاسم: "+name+"%0A"
-+"الرقم: "+phone+"%0A"
-+"العرض: "+width+"%0A"
-+"الطول: "+height+"%0A"
-+"النوع: "+type+"%0A"
-+"تفاصيل: "+details;
-
-window.open("https://wa.me/966565717405?text="+msg,"_blank");
+    window.open("https://wa.me/966565717405?text=" + msg, "_blank");
 }
 </script>
 
 </body>
-</html>
+</html>له همدغه کوډ نه مخکینی لوکیشن لری کړی او همدا لوکیشن پکی واچویhttps://maps.app.goo.gl/qkNdjutS9EHd15nS9
