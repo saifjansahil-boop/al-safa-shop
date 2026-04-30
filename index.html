@@ -15,8 +15,8 @@ body {
 
 /* HEADER */
 header {
-    background: linear-gradient(135deg,#000,#333);
-    color:#fff;
+    background:linear-gradient(135deg,#000,#333);
+    color:white;
     padding:25px;
 }
 
@@ -38,40 +38,48 @@ header {
     border-radius:50px;
 }
 
-/* SLIDER */
-.slider {
-    position:relative;
-    height:300px;
-    margin:15px;
-    border-radius:20px;
+/* GALLERY */
+.gallery {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+    padding:15px;
+}
+
+.item {
+    background:white;
+    border-radius:15px;
     overflow:hidden;
-}
-
-.slide {
-    position:absolute;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    opacity:0;
-    transition:1s;
-}
-
-.slide.active {opacity:1;}
-
-.prev,.next {
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    background:rgba(0,0,0,0.5);
-    color:white;
-    border:none;
-    padding:10px;
-    border-radius:50%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
     cursor:pointer;
 }
 
-.prev {left:10px;}
-.next {right:10px;}
+.item img {
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    transition:0.3s;
+}
+
+.item:hover img {
+    transform:scale(1.05);
+}
+
+/* ZOOM */
+#popup {
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+}
+
+#popup img {
+    max-width:90%;
+    max-height:90%;
+}
 
 /* FORM */
 .form-box {
@@ -81,7 +89,9 @@ header {
     border-radius:20px;
 }
 
-.form-box input,.form-box textarea,.form-box select {
+.form-box input,
+.form-box textarea,
+.form-box select {
     width:90%;
     padding:10px;
     margin:10px;
@@ -123,42 +133,43 @@ footer {
 <h2>محل ستائر الصفاء</h2>
 </header>
 
-<!-- ✅ NEW LOCATION -->
 <a class="location" href="https://maps.app.goo.gl/oMpLiWp3CkfiqoaH8" target="_blank">
-📍 اضغط هنا لفتح موقع المحل على الخريطة
+📍 اضغط هنا لفتح موقع المحل
 </a>
 
-<!-- SLIDER -->
-<div class="slider">
+<!-- GALLERY -->
+<div class="gallery">
 
-<button class="prev" onclick="prevSlide()">❮</button>
+<div class="item"><img src="IMG-20260426-WA0012.jpg" onclick="openImg(this.src)"></div>
+<div class="item"><img src="IMG-20260426-WA0011.jpg" onclick="openImg(this.src)"></div>
+<div class="item"><img src="IMG-20260426-WA0020.jpg" onclick="openImg(this.src)"></div>
+<div class="item"><img src="IMG-20260426-WA0019.jpg" onclick="openImg(this.src)"></div>
+<div class="item"><img src="IMG-20260426-WA0018.jpg" onclick="openImg(this.src)"></div>
+<div class="item"><img src="IMG-20260426-WA0017.jpg" onclick="openImg(this.src)"></div>
+<div class="item"><img src="IMG-20260426-WA0016.jpg" onclick="openImg(this.src)"></div>
+<div class="item"><img src="IMG-20260426-WA0015.jpg" onclick="openImg(this.src)"></div>
+<div class="item"><img src="IMG-20260426-WA0010.jpg" onclick="openImg(this.src)"></div>
 
-<img src="IMG-20260426-WA0012.jpg" class="slide active">
-<img src="IMG-20260426-WA0011.jpg" class="slide">
-<img src="IMG-20260426-WA0020.jpg" class="slide">
-<img src="IMG-20260426-WA0019.jpg" class="slide">
-<img src="IMG-20260426-WA0018.jpg" class="slide">
-<img src="IMG-20260426-WA0017.jpg" class="slide">
-<img src="IMG-20260426-WA0016.jpg" class="slide">
-<img src="IMG-20260426-WA0015.jpg" class="slide">
-<img src="IMG-20260426-WA0010.jpg" class="slide">
-<img src="IMG-20260426-WA0018(2).jpg" class="slide">
-<img src="IMG-20260426-WA0015(2).jpg" class="slide">
-<img src="IMG-20260426-WA0012(2).jpg" class="slide">
-<img src="IMG-20260208-WA0006.jpg" class="slide">
-
-<button class="next" onclick="nextSlide()">❯</button>
+<div class="item"><img src="IMG-20260426-WA0018(2).jpg" onclick="openImg(this.src)"></div>
+<div class="item"><img src="IMG-20260426-WA0015(2).jpg" onclick="openImg(this.src)"></div>
+<div class="item"><img src="IMG-20260426-WA0012(2).jpg" onclick="openImg(this.src)"></div>
+<div class="item"><img src="IMG-20260208-WA0006.jpg" onclick="openImg(this.src)"></div>
 
 </div>
 
-<!-- ORDER FORM -->
+<!-- POPUP -->
+<div id="popup" onclick="closeImg()">
+<img id="popup-img">
+</div>
+
+<!-- FORM -->
 <div class="form-box">
 <h2>📋 طلب ستائر أونلاين</h2>
 
 <input type="text" id="name" placeholder="اسمك">
 <input type="text" id="phone" placeholder="رقمك">
-<input type="text" id="width" placeholder="العرض (مثلاً 3 متر)">
-<input type="text" id="height" placeholder="الطول (مثلاً 2.5 متر)">
+<input type="text" id="width" placeholder="العرض">
+<input type="text" id="height" placeholder="الطول">
 
 <select id="type">
 <option>نوع الستارة</option>
@@ -168,10 +179,10 @@ footer {
 <option>بلاك اوت</option>
 </select>
 
-<textarea id="details" placeholder="تفاصيل إضافية"></textarea>
+<textarea id="details" placeholder="تفاصيل"></textarea>
 
 <button onclick="sendOrder()" class="btn">
-إرسال الطلب عبر واتساب
+إرسال عبر واتساب
 </button>
 </div>
 
@@ -183,25 +194,14 @@ footer {
 </footer>
 
 <script>
-let slides=document.querySelectorAll(".slide");
-let index=0;
-
-function showSlide(i){
-slides.forEach(s=>s.classList.remove("active"));
-slides[i].classList.add("active");
+function openImg(src){
+document.getElementById("popup").style.display="flex";
+document.getElementById("popup-img").src=src;
 }
 
-function nextSlide(){
-index++; if(index>=slides.length) index=0;
-showSlide(index);
+function closeImg(){
+document.getElementById("popup").style.display="none";
 }
-
-function prevSlide(){
-index--; if(index<0) index=slides.length-1;
-showSlide(index);
-}
-
-setInterval(()=>{nextSlide();},6000);
 
 function sendOrder(){
 var name=document.getElementById("name").value;
